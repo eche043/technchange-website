@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AProposController;
 use App\Http\Controllers\CarrieresController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjetsController;
@@ -28,6 +29,10 @@ Route::get('/a-propos', [AProposController::class, 'index'])->name('apropos.inde
 Route::get('/carrieres', [CarrieresController::class, 'index'])->name('carrieres.index');
 Route::get('/carrieres/{id}', [CarrieresController::class, 'show'])->name('carrieres.show');
 Route::post('/carrieres/apply', [CarrieresController::class, 'apply'])->name('carrieres.apply');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/api/contact', [ContactController::class, 'api'])->name('contact.api');
 /* Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
