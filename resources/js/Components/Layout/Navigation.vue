@@ -6,7 +6,7 @@
         <div class="flex items-center justify-between h-20">
           <!-- Logo -->
           <Link href="/" class="flex items-center space-x-3">
-            <img src="/images/logos/technchange-logo.svg" alt="TECH N'CHANGE" class="h-10">
+            <img src="/images/logos/logotc.png" alt="TECH N'CHANGE" class="h-10">
             <div class="font-bold text-xl text-gray-900">TECH N'CHANGE</div>
           </Link>
 

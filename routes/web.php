@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\AProposController;
+use App\Http\Controllers\CarrieresController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjetsController;
+use App\Http\Controllers\ServicesController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,6 +21,13 @@ use Inertia\Inertia;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/services', [ServicesController::class, 'index'])->name('index');
+Route::get('/projets', [ProjetsController::class, 'index'])->name('projets.index');
+Route::get('/a-propos', [AProposController::class, 'index'])->name('apropos.index');
+
+Route::get('/carrieres', [CarrieresController::class, 'index'])->name('carrieres.index');
+Route::get('/carrieres/{id}', [CarrieresController::class, 'show'])->name('carrieres.show');
+Route::post('/carrieres/apply', [CarrieresController::class, 'apply'])->name('carrieres.apply');
 /* Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
