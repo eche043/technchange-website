@@ -172,15 +172,16 @@
           <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">Notre Offre de Services</h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              Une approche structurée autour de quatre pôles complémentaires pour accompagner votre transformation digitale
+              Une approche structurée autour de cinq pôles complémentaires pour accompagner votre transformation digitale
             </p>
           </div>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div
               v-for="(service, index) in services"
               :key="service.id"
               class="group relative"
+              :class="{ 'md:col-span-2 lg:col-span-2': service.id === 'amoa' }"
             >
               <!-- Card principale -->
               <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 h-full">
@@ -200,22 +201,30 @@
                   EXPERT
                 </div>
 
+                <!-- Badge Awards pour digiTRANS -->
+                <div
+                  v-if="service.awards"
+                  class="absolute -top-3 -left-3 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+                >
+                  🏆 AWARDS
+                </div>
+
                 <!-- Icône -->
                 <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300">
-                  <component
-                    :is="getIcon(service.icon)"
+                  <DynamicIcon
+                    :name="service.icon"
                     class="w-8 h-8 text-blue-600 group-hover:text-white transition-colors duration-300"
                   />
                 </div>
 
                 <h3 class="text-xl font-bold text-gray-900 mb-2">{{ service.title }}</h3>
                 <p class="text-sm text-blue-600 font-semibold mb-3">{{ service.subtitle }}</p>
-                <p class="text-gray-600 mb-4 leading-relaxed">{{ service.description }}</p>
+                <p class="text-gray-600 mb-4 leading-relaxed text-sm">{{ service.description }}</p>
 
                 <!-- Features -->
-                <ul class="space-y-2 mb-6">
+                <ul class="space-y-2 mb-4">
                   <li
-                    v-for="feature in service.features.slice(0, 3)"
+                    v-for="feature in service.features.slice(0, service.id === 'amoa' ? 4 : 3)"
                     :key="feature"
                     class="flex items-start space-x-2 text-sm text-gray-600"
                   >
@@ -224,6 +233,34 @@
                   </li>
                 </ul>
 
+                <!-- Achievements spéciaux pour digiTRANS -->
+                <div v-if="service.achievements" class="mb-4">
+                  <h4 class="text-sm font-semibold text-gray-900 mb-2">Réalisations :</h4>
+                  <div class="grid grid-cols-2 gap-2">
+                    <div
+                      v-for="achievement in service.achievements.slice(0, 2)"
+                      :key="achievement"
+                      class="text-center bg-orange-50 rounded p-2"
+                    >
+                      <div class="text-xs font-bold text-orange-600">{{ achievement.split(' ')[0] }}</div>
+                      <div class="text-xs text-gray-600">{{ achievement.split(' ').slice(1).join(' ') }}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sites web pour digiTRANS -->
+                <div v-if="service.websites" class="mb-4">
+                  <div class="flex flex-wrap gap-1">
+                    <span
+                      v-for="website in service.websites"
+                      :key="website"
+                      class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
+                    >
+                      {{ website }}
+                    </span>
+                  </div>
+                </div>
+
                 <!-- CTA -->
                 <Link
                   :href="service.route"
@@ -231,6 +268,148 @@
                 >
                   En savoir plus
                 </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section digiTRANS - Solutions Transport (NOUVELLE) -->
+      <section class="py-20 bg-gradient-to-r from-orange-500 to-red-600 text-white">
+        <div class="container mx-auto px-6">
+          <!-- Header avec awards -->
+          <div class="text-center mb-16">
+            <div class="flex justify-center space-x-4 mb-6">
+              <div class="bg-white/20 rounded-full px-4 py-2 backdrop-blur-sm">
+                <span class="text-sm font-semibold">🏆 Lauréat France/Afrique 2020</span>
+              </div>
+              <div class="bg-white/20 rounded-full px-4 py-2 backdrop-blur-sm">
+                <span class="text-sm font-semibold">🏆 Awards Mobilité CIV</span>
+              </div>
+            </div>
+
+            <h2 class="text-4xl font-bold mb-4">{{ digiTransSolutions.title }}</h2>
+            <p class="text-xl opacity-90 max-w-3xl mx-auto">{{ digiTransSolutions.description }}</p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-12">
+            <!-- digiTRANS B2B -->
+            <div class="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold">digiTRANS B2B</h3>
+                <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  Entreprises
+                </span>
+              </div>
+
+              <p class="text-lg opacity-90 mb-6">
+                {{ digiTransSolutions.solutions[0].description }}
+              </p>
+
+              <div class="grid grid-cols-3 gap-4 mb-6">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-yellow-300">-30%</div>
+                  <div class="text-sm opacity-75">Coûts exploitation</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-yellow-300">+40%</div>
+                  <div class="text-sm opacity-75">Efficacité flotte</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-yellow-300">12M</div>
+                  <div class="text-sm opacity-75">ROI (mois)</div>
+                </div>
+              </div>
+
+              <div class="space-y-2 mb-6">
+                <div
+                  v-for="feature in digiTransSolutions.solutions[0].features.slice(0, 3)"
+                  :key="feature"
+                  class="flex items-center space-x-2"
+                >
+                  <CheckCircleIcon class="w-5 h-5 text-green-300" />
+                  <span class="text-sm">{{ feature }}</span>
+                </div>
+              </div>
+
+              <a
+                href="http://digitransb2b.com"
+                target="_blank"
+                class="inline-flex items-center bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+              >
+                Visiter digitransb2b.com
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- digiTRANS B2C -->
+            <div class="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold">digiTRANS B2C</h3>
+                <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  Particuliers
+                </span>
+              </div>
+
+              <p class="text-lg opacity-90 mb-6">
+                {{ digiTransSolutions.solutions[1].description }}
+              </p>
+
+              <div class="grid grid-cols-3 gap-4 mb-6">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-yellow-300">25K+</div>
+                  <div class="text-sm opacity-75">Inscriptions</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-yellow-300">+200%</div>
+                  <div class="text-sm opacity-75">Croissance</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-yellow-300">55%</div>
+                  <div class="text-sm opacity-75">Femmes</div>
+                </div>
+              </div>
+
+              <div class="bg-white/10 rounded-lg p-4 mb-6">
+                <h4 class="font-semibold mb-2">Démographie utilisateurs :</h4>
+                <div class="text-sm space-y-1 opacity-90">
+                  <div>• Âge moyen : 25-55 ans</div>
+                  <div>• Secteur : Services/Administration</div>
+                  <div>• Zone : Grand Abidjan</div>
+                  <div>• Budget transport : 25-60k FCFA/mois</div>
+                </div>
+              </div>
+
+              <a
+                href="https://digitrans.com"
+                target="_blank"
+                class="inline-flex items-center bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+              >
+                Visiter digitrans.com
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Expansion régionale -->
+          <div class="mt-16 text-center">
+            <h3 class="text-2xl font-bold mb-8">Expansion Sous-Régionale</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div
+                v-for="country in regionalExpansion.countries"
+                :key="country.name"
+                class="bg-white/10 rounded-lg p-4 backdrop-blur-sm text-center"
+              >
+                <div class="text-3xl mb-2">{{ country.flag }}</div>
+                <h4 class="font-semibold text-lg mb-1">{{ country.name }}</h4>
+                <p class="text-sm opacity-75 mb-2">{{ country.partner }}</p>
+                <div class="text-xs opacity-60">
+                  {{ country.services.join(', ') }}
+                </div>
               </div>
             </div>
           </div>
@@ -410,380 +589,381 @@
                   <CheckCircleIcon class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" />
                   <div>
                     <h4 class="font-semibold">Solutions IoT Open Source</h4>
-                    <p class="text-gray-300 text-sm">Plateformes interopérables et évolutives</p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <CheckCircleIcon class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 class="font-semibold">Projets financés par l'UE</h4>
-                    <p class="text-gray-300 text-sm">Plusieurs Gxof européens</p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <CheckCircleIcon class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 class="font-semibold">Standards européens</h4>
-                    <p class="text-gray-300 text-sm">Conformité et interopérabilité</p>
-                  </div>
-                </div>
-              </div>
+                 <p class="text-gray-300 text-sm">Plateformes interopérables et évolutives</p>
+               </div>
+             </div>
+             <div class="flex items-start space-x-3">
+               <CheckCircleIcon class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" />
+               <div>
+                 <h4 class="font-semibold">Projets financés par l'UE</h4>
+                 <p class="text-gray-300 text-sm">Plusieurs Gxof européens</p>
+               </div>
+             </div>
+             <div class="flex items-start space-x-3">
+               <CheckCircleIcon class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" />
+               <div>
+                 <h4 class="font-semibold">Standards européens</h4>
+                 <p class="text-gray-300 text-sm">Conformité et interopérabilité</p>
+               </div>
+             </div>
+           </div>
 
-              <Link
-                href="/services/patrimoine"
-                class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 inline-block"
-              >
-                Explorer FIWARE
-              </Link>
-            </div>
+           <Link
+             href="/services/patrimoine"
+             class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 inline-block"
+           >
+             Explorer FIWARE
+           </Link>
+         </div>
 
-            <!-- Visualisation IoT -->
-            <div class="relative">
-              <div class="grid grid-cols-3 gap-4">
-                <div
-                  v-for="i in 9"
-                  :key="i"
-                  class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center relative backdrop-blur-sm border border-white/20"
-                  :class="{ 'animate-pulse': i % 3 === 0 }"
-                >
-                  <div class="w-3 h-3 bg-orange-400 rounded-full"></div>
-                  <div
-                    v-if="i % 3 === 0"
-                    class="absolute inset-0 border-2 border-orange-400 rounded-full animate-ping"
-                  ></div>
-                </div>
-              </div>
-              <div class="text-center mt-6">
-                <p class="text-lg font-semibold">Réseau IoT Connecté</p>
-                <p class="text-gray-300 text-sm">Monitoring temps réel</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+         <!-- Visualisation IoT -->
+         <div class="relative">
+           <div class="grid grid-cols-3 gap-4">
+             <div
+               v-for="i in 9"
+               :key="i"
+               class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center relative backdrop-blur-sm border border-white/20"
+               :class="{ 'animate-pulse': i % 3 === 0 }"
+             >
+               <div class="w-3 h-3 bg-orange-400 rounded-full"></div>
+               <div
+                 v-if="i % 3 === 0"
+                 class="absolute inset-0 border-2 border-orange-400 rounded-full animate-ping"
+               ></div>
+             </div>
+           </div>
+           <div class="text-center mt-6">
+             <p class="text-lg font-semibold">Réseau IoT Connecté</p>
+             <p class="text-gray-300 text-sm">Monitoring temps réel</p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
 
-      <!-- Carousel des Partenaires -->
-      <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Nos Partenaires de Confiance</h2>
-            <p class="text-gray-600">Ils nous font confiance pour leurs projets stratégiques</p>
-          </div>
+   <!-- Carousel des Partenaires -->
+   <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-6">
+       <div class="text-center mb-12">
+         <h2 class="text-3xl font-bold text-gray-900 mb-4">Nos Partenaires de Confiance</h2>
+         <p class="text-gray-600">Ils nous font confiance pour leurs projets stratégiques</p>
+       </div>
 
-          <PartnersCarousel :partners="partners" />
-        </div>
-      </section>
+       <PartnersCarousel :partners="partners" />
+     </div>
+   </section>
 
-      <!-- Section Attraction des Talents -->
-      <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-4">Rejoignez une Équipe d'Exception</h2>
-            <p class="text-xl opacity-90 max-w-3xl mx-auto">
-              Travaillez sur des projets d'envergure nationale et contribuez à la transformation digitale de l'Afrique
-            </p>
-          </div>
+   <!-- Section Attraction des Talents -->
+   <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+     <div class="container mx-auto px-6">
+       <div class="text-center mb-16">
+         <h2 class="text-4xl font-bold mb-4">Rejoignez une Équipe d'Exception</h2>
+         <p class="text-xl opacity-90 max-w-3xl mx-auto">
+           Travaillez sur des projets d'envergure nationale et contribuez à la transformation digitale de l'Afrique
+         </p>
+       </div>
 
-          <div class="grid lg:grid-cols-3 gap-8 mb-12">
-            <div
-              v-for="highlight in teamHighlights"
-              :key="highlight.name || highlight.title"
-              class="text-center bg-white/10 rounded-xl p-6 backdrop-blur-sm"
-            >
-              <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <UsersIcon class="w-10 h-10 text-orange-400" />
-              </div>
-              <h3 class="text-xl font-bold mb-2">
-                {{ highlight.name || highlight.title }}
-              </h3>
-              <p class="text-orange-400 font-semibold mb-2">
-                {{ highlight.role || highlight.count }}
-              </p>
-              <p class="text-sm opacity-75">{{ highlight.expertise }}</p>
-            </div>
-          </div>
+       <div class="grid lg:grid-cols-3 gap-8 mb-12">
+         <div
+           v-for="highlight in teamHighlights"
+           :key="highlight.name || highlight.title"
+           class="text-center bg-white/10 rounded-xl p-6 backdrop-blur-sm"
+         >
+           <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+             <UsersIcon class="w-10 h-10 text-orange-400" />
+           </div>
+           <h3 class="text-xl font-bold mb-2">
+             {{ highlight.name || highlight.title }}
+           </h3>
+           <p class="text-orange-400 font-semibold mb-2">
+             {{ highlight.role || highlight.count }}
+           </p>
+           <p class="text-sm opacity-75">{{ highlight.expertise }}</p>
+         </div>
+       </div>
 
-          <!-- Certifications -->
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div
-              v-for="cert in certifications"
-              :key="cert.title"
-              class="text-center bg-white/10 rounded-lg p-4 backdrop-blur-sm"
-            >
-              <TrophyIcon class="w-8 h-8 text-orange-400 mx-auto mb-2" />
-              <h4 class="font-semibold text-sm mb-1">{{ cert.title }}</h4>
-              <p class="text-xs opacity-75">{{ cert.description }}</p>
-            </div>
-          </div>
+       <!-- Certifications enrichies -->
+       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+         <div
+           v-for="cert in certifications.filter(c => c.priority === 'high')"
+           :key="cert.title"
+           class="text-center bg-white/10 rounded-lg p-6 backdrop-blur-sm border border-white/20"
+         >
+           <TrophyIcon class="w-12 h-12 text-yellow-400 mx-auto mb-3" />
+           <h4 class="font-bold text-lg mb-2">{{ cert.title }}</h4>
+           <p class="text-sm opacity-75 mb-1">{{ cert.description }}</p>
+           <span class="text-xs bg-white/20 px-2 py-1 rounded-full">{{ cert.year }}</span>
+         </div>
 
-          <div class="text-center">
-            <Link
-              href="/carrieres"
-              class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-            >
-              Découvrir nos opportunités
-            </Link>
-          </div>
-        </div>
-      </section>
+         <!-- Autres certifications -->
+         <div class="text-center bg-white/10 rounded-lg p-6 backdrop-blur-sm border border-white/20 lg:col-span-3">
+           <h4 class="font-bold text-lg mb-4">Certifications & Memberships</h4>
+           <div class="flex flex-wrap justify-center gap-3">
+             <span
+               v-for="cert in certifications.filter(c => c.priority !== 'high')"
+               :key="cert.title"
+               class="bg-white/20 px-3 py-1 rounded-full text-sm"
+             >
+               {{ cert.title }}
+             </span>
+           </div>
 
-      <!-- Processus d'Innovation -->
-      <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Notre Processus d'Innovation</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              Une approche agile et structurée pour transformer vos idées en solutions opérationnelles
-            </p>
-          </div>
+           <!-- Infos entreprise -->
+           <div class="mt-4 text-sm opacity-75">
+             <p>{{ companyInfo.legal.employees }} collaborateurs • Capital {{ companyInfo.legal.capital }}</p>
+             <p>RCCM: {{ companyInfo.legal.rccm }}</p>
+           </div>
+         </div>
+       </div>
 
-          <div class="grid lg:grid-cols-5 gap-8">
-            <div
-              v-for="(step, index) in innovationProcess"
-              :key="step.step"
-              class="relative text-center"
-            >
-              <!-- Connector line -->
-              <div
-                v-if="index < innovationProcess.length - 1"
-                class="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-blue-200 transform translate-x-4"
-              ></div>
+       <div class="text-center">
+         <Link
+           href="/carrieres"
+           class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+         >
+           Découvrir nos opportunités
+         </Link>
+       </div>
+     </div>
+   </section>
 
-              <!-- Step circle -->
-              <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg relative z-10">
-                {{ step.step }}
-              </div>
+   <!-- Processus d'Innovation -->
+   <section class="py-20 bg-white">
+     <div class="container mx-auto px-6">
+       <div class="text-center mb-16">
+         <h2 class="text-4xl font-bold text-gray-900 mb-4">Notre Processus d'Innovation</h2>
+         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+           Une approche agile et structurée pour transformer vos idées en solutions opérationnelles
+         </p>
+       </div>
 
-              <h3 class="text-lg font-bold text-gray-900 mb-2">{{ step.title }}</h3>
-              <p class="text-gray-600 text-sm">{{ step.description }}</p>
-            </div>
-          </div>
-        </div>
-      </section>
+       <div class="grid lg:grid-cols-5 gap-8">
+         <div
+           v-for="(step, index) in innovationProcess"
+           :key="step.step"
+           class="relative text-center"
+         >
+           <!-- Connector line -->
+           <div
+             v-if="index < innovationProcess.length - 1"
+             class="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-blue-200 transform translate-x-4"
+           ></div>
 
-      <!-- Contact/CTA final -->
-      <section class="py-20 bg-gray-900 text-white">
-        <div class="container mx-auto px-6 text-center">
-          <h2 class="text-4xl font-bold mb-6">Transformez Votre Vision en Réalité</h2>
-          <p class="text-xl opacity-90 mb-8 max-w-3xl mx-auto">
-            Contactez-nous pour discuter de votre projet de transformation digitale
-          </p>
+           <!-- Step circle -->
+           <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg relative z-10">
+             {{ step.step }}
+           </div>
 
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300"
-            >
-              Démarrer un projet
-            </Link>
-            <a
-              href="tel:+22521213242047"
-              class="bg-white/10 border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300"
-            >
-              Nous appeler
-            </a>
-          </div>
+           <h3 class="text-lg font-bold text-gray-900 mb-2">{{ step.title }}</h3>
+           <p class="text-gray-600 text-sm">{{ step.description }}</p>
+         </div>
+       </div>
+     </div>
+   </section>
 
-          <div class="mt-8 text-gray-400">
-            <p>contact@technchange.net | (+225) 27 21 32 42 47 / (+225) 07 89 97 11 13</p>
-          </div>
-        </div>
-      </section>
+   <!-- Contact/CTA final -->
+   <section class="py-20 bg-gray-900 text-white">
+     <div class="container mx-auto px-6 text-center">
+       <h2 class="text-4xl font-bold mb-6">Transformez Votre Vision en Réalité</h2>
+       <p class="text-xl opacity-90 mb-8 max-w-3xl mx-auto">
+         Contactez-nous pour discuter de votre projet de transformation digitale
+       </p>
 
-      <!-- Footer -->
-      <Footer />
-    </div>
-  </template>
+       <div class="flex flex-col sm:flex-row gap-4 justify-center">
+         <Link
+           href="/contact"
+           class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300"
+         >
+           Démarrer un projet
+         </Link>
+         <a
+           href="tel:+22521213242047"
+           class="bg-white/10 border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300"
+         >
+           Nous appeler
+         </a>
+       </div>
 
-  <script setup>
-  import { ref, onMounted, computed } from 'vue'
-  import { Head, Link } from '@inertiajs/vue3'
-  import {
-    ChevronDownIcon,
-    CheckCircleIcon,
-    CheckIcon,
-    FingerPrintIcon,
-    TrophyIcon,
-    UsersIcon
-  } from '@heroicons/vue/24/outline'
+       <div class="mt-8 text-gray-400">
+         <p>contact@technchange.net | (+225) 27 21 32 42 47 / (+225) 07 89 97 11 13</p>
+       </div>
+     </div>
+   </section>
 
-  // Components
-  import Navigation from '@/Components/Layout/Navigation.vue'
-  import Footer from '@/Components/Layout/Footer.vue'
-  import NewsPopup from '@/Components/Layout/NewsPopup.vue'
-  import PartnersCarousel from '@/Components/UI/PartnersCarousel.vue'
-  import CounterAnimation from '@/Components/UI/CounterAnimation.vue'
+   <!-- Footer -->
+   <Footer />
+ </div>
+</template>
 
-  // Props du contrôleur
-  const props = defineProps({
-    stats: Array,
-    services: Array,
-    featuredProjects: Array,
-    partners: Array,
-    teamHighlights: Array,
-    innovationProcess: Array,
-    newsPopup: Object,
-    certifications: Array,
-    vision: Object,
-    meta: Object
-  })
+<script setup>
+import { ref, onMounted, computed } from 'vue'
+import { Head, Link } from '@inertiajs/vue3'
+import {
+ ChevronDownIcon,
+ CheckCircleIcon,
+ CheckIcon,
+ FingerPrintIcon,
+ TrophyIcon,
+ UsersIcon,
+ TruckIcon
+} from '@heroicons/vue/24/outline'
 
-  // État local
-  const isVisible = ref(false)
-  const shouldShowPopup = ref(false)
+// Components
+import Navigation from '@/Components/Layout/Navigation.vue'
+import Footer from '@/Components/Layout/Footer.vue'
+import NewsPopup from '@/Components/Layout/NewsPopup.vue'
+import PartnersCarousel from '@/Components/UI/PartnersCarousel.vue'
+import CounterAnimation from '@/Components/UI/CounterAnimation.vue'
+import DynamicIcon from '@/Components/UI/DynamicIcon.vue'
 
-  // Méthodes
-  const getIcon = (iconName) => {
-    const icons = {
-      ChartBarIcon: 'ChartBarIcon',
-      FingerPrintIcon: 'FingerPrintIcon',
-      CogIcon: 'CogIcon',
-      CircuitBoardIcon: 'CircuitBoardIcon'
-    }
-    return icons[iconName] || 'CogIcon'
-  }
+// Props du contrôleur
+const props = defineProps({
+ stats: Array,
+ services: Array,
+ digiTransSolutions: Object,
+ regionalExpansion: Object,
+ featuredProjects: Array,
+ partners: Array,
+ teamHighlights: Array,
+ innovationProcess: Array,
+ newsPopup: Object,
+ certifications: Array,
+ companyInfo: Object,
+ vision: Object,
+ meta: Object
+})
 
-  const hidePopup = () => {
-    shouldShowPopup.value = false
+// État local
+const isVisible = ref(false)
+const shouldShowPopup = ref(false)
 
-    // Marquer le popup comme affiché via API
-    if (props.newsPopup?.id) {
-      fetch('/api/popup/mark-shown', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
-        },
-        body: JSON.stringify({
-          popup_id: props.newsPopup.id
-        })
-      })
-    }
-  }
+// Méthodes
+const hidePopup = () => {
+ shouldShowPopup.value = false
 
-  const checkPopupConditions = () => {
-    if (!props.newsPopup?.show) return false
+ // Marquer le popup comme affiché via API
+ if (props.newsPopup?.id) {
+   fetch('/api/popup/mark-shown', {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/json',
+       'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
+     },
+     body: JSON.stringify({
+       popup_id: props.newsPopup.id
+     })
+   })
+ }
+}
 
-    // Vérifier si déjà affiché récemment (localStorage)
-    const lastShown = localStorage.getItem(`popup_${props.newsPopup.id}_last_shown`)
-    if (lastShown) {
-      const lastShownDate = new Date(lastShown)
-      const now = new Date()
-      const daysDiff = (now - lastShownDate) / (1000 * 60 * 60 * 24)
+const checkPopupConditions = () => {
+ if (!props.newsPopup?.show) return false
 
-      // Afficher selon la fréquence définie
-      switch (props.newsPopup.frequency) {
-        case 'once_per_day':
-          return daysDiff >= 1
-        case 'once_per_week':
-          return daysDiff >= 7
-        case 'always':
-          return true
-        default:
-          return false
-      }
-    }
+ // Vérifier si déjà affiché récemment (localStorage)
+ const lastShown = localStorage.getItem(`popup_${props.newsPopup.id}_last_shown`)
+ if (lastShown) {
+   const lastShownDate = new Date(lastShown)
+   const now = new Date()
+   const daysDiff = (now - lastShownDate) / (1000 * 60 * 60 * 24)
 
-    return true // Première fois
-  }
+   // Afficher selon la fréquence définie
+   switch (props.newsPopup.frequency) {
+     case 'once_per_day':
+       return daysDiff >= 1
+     case 'once_per_week':
+       return daysDiff >= 7
+     case 'always':
+       return true
+     default:
+       return false
+   }
+ }
 
-  // Lifecycle
-  onMounted(() => {
-    // Animation d'entrée
-    setTimeout(() => {
-      isVisible.value = true
-    }, 100)
+ return true // Première fois
+}
 
-    // Vérifier conditions popup après 2 secondes
-    setTimeout(() => {
-      shouldShowPopup.value = checkPopupConditions()
-    }, 2000)
-  })
-  </script>
+// Lifecycle
+onMounted(() => {
+ // Animation d'entrée
+ setTimeout(() => {
+   isVisible.value = true
+ }, 100)
 
-  <style scoped>
-  /* Animations personnalisées */
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+ // Vérifier conditions popup après 2 secondes
+ setTimeout(() => {
+   shouldShowPopup.value = checkPopupConditions()
+ }, 2000)
+})
+</script>
 
-  @keyframes slide-in-right {
-    from {
-      opacity: 0;
-      transform: translateX(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
+<style scoped>
+/* Animations personnalisées */
+@keyframes fade-in-up {
+ from {
+   opacity: 0;
+   transform: translateY(30px);
+ }
+ to {
+   opacity: 1;
+   transform: translateY(0);
+ }
+}
 
-  @keyframes slide-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+@keyframes slide-in-right {
+ from {
+   opacity: 0;
+   transform: translateX(30px);
+ }
+ to {
+   opacity: 1;
+   transform: translateX(0);
+ }
+}
 
-  .animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out;
-  }
+@keyframes slide-in-up {
+ from {
+   opacity: 0;
+   transform: translateY(20px);
+ }
+ to {
+   opacity: 1;
+   transform: translateY(0);
+ }
+}
 
-  .animate-slide-in-right {
-    animation: slide-in-right 0.8s ease-out;
-  }
+.animate-fade-in-up {
+ animation: fade-in-up 0.8s ease-out;
+}
 
-  .animate-slide-in-up {
-    animation: slide-in-up 0.6s ease-out;
-  }
+.animate-slide-in-right {
+ animation: slide-in-right 0.8s ease-out;
+}
 
-  .delay-300 {
-    animation-delay: 300ms;
-  }
+.animate-slide-in-up {
+ animation: slide-in-up 0.6s ease-out;
+}
 
-  .delay-1000 {
-    animation-delay: 1000ms;
-  }
+.delay-300 {
+ animation-delay: 300ms;
+}
 
-  /* Styles pour les boutons */
-  .btn-primary {
-    @apply bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
-  }
+.delay-1000 {
+ animation-delay: 1000ms;
+}
 
-  .btn-secondary {
-    @apply bg-white/10 border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm;
-  }
+/* Styles pour les boutons */
+.btn-primary {
+ @apply bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+}
 
-  /* Effet parallaxe léger pour les éléments de fond */
-  .parallax-bg {
-    transform: translateZ(0);
-    will-change: transform;
-  }
+.btn-secondary {
+ @apply bg-white/10 border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm;
+}
 
-  /* Optimisation des performances */
-  .will-change-transform {
-    will-change: transform;
-  }
-
-  .will-change-opacity {
-    will-change: opacity;
-  }
-
-  /* Responsive improvements */
-  @media (max-width: 768px) {
-    .animate-slide-in-right {
-      animation: fade-in-up 0.8s ease-out;
-    }
-  }
-  </style>
+/* Responsive improvements */
+@media (max-width: 768px) {
+ .animate-slide-in-right {
+   animation: fade-in-up 0.8s ease-out;
+ }
+}
+</style>

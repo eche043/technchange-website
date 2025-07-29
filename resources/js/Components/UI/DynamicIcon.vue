@@ -1,3 +1,4 @@
+<!-- resources/js/Components/UI/DynamicIcon.vue -->
 <template>
     <component :is="iconComponent" :class="iconClass" />
   </template>
@@ -8,7 +9,7 @@
     ChartBarIcon,
     FingerPrintIcon,
     CogIcon,
-    CircuitBoardIcon,
+    CpuChipIcon,
     TruckIcon,
     TrophyIcon,
     BuildingOfficeIcon,
@@ -36,7 +37,7 @@
       ChartBarIcon,
       FingerPrintIcon,
       CogIcon,
-      CircuitBoardIcon,
+      CircuitBoardIcon: CpuChipIcon, // Remplacé par CpuChipIcon qui existe
       TruckIcon,
       TrophyIcon,
       BuildingOfficeIcon,
