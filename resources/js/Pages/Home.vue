@@ -698,6 +698,8 @@
             </div>
        </div>
 
+
+       <!-- Certifications enrichies -->
        <!-- Certifications enrichies -->
        <div class="flex flex-wrap gap-6 mb-12">
         <!-- Certifications priority = high -->
