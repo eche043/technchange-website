@@ -436,6 +436,119 @@
         </div>
       </section>
 
+      <!-- Ajouter après la section certifications -->
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6">Attestations de Bonne Exécution</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Preuves tangibles de notre expertise validées par nos clients institutionnels
+            </p>
+            <div class="mt-4 inline-flex items-center bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
+                <DynamicIcon name="DocumentCheckIcon" class="w-4 h-4 mr-2" />
+                163M+ FCFA de projets certifiés
+            </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div
+                v-for="abe in attestations"
+                :key="abe.title"
+                class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border border-blue-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
+                <!-- Header avec statut et montant -->
+                <div class="flex items-center justify-between mb-6">
+                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                    {{ abe.status }}
+                </span>
+                <div class="text-right">
+                    <div class="text-2xl font-bold text-blue-600">
+                    {{ formatAmount(abe.amount) }}
+                    </div>
+                    <div class="text-sm text-gray-500">{{ abe.currency }}</div>
+                </div>
+                </div>
+
+                <!-- Titre et client -->
+                <div class="mb-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{{ abe.title }}</h3>
+                <p class="text-blue-600 font-semibold text-sm mb-2">{{ abe.client_full }}</p>
+                <p class="text-gray-600 text-sm leading-relaxed">{{ abe.description }}</p>
+                </div>
+
+                <!-- Détails du projet -->
+                <div class="space-y-3 mb-6">
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500">Période:</span>
+                    <span class="font-medium text-gray-900">{{ abe.period }}</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500">Date ABE:</span>
+                    <span class="font-medium text-gray-900">{{ abe.date_emission }}</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500">Type:</span>
+                    <span class="font-medium text-gray-900">{{ abe.type }}</span>
+                </div>
+                </div>
+
+                <!-- Résultats (si disponibles) -->
+                <div v-if="abe.results" class="mb-6">
+                <h4 class="text-sm font-semibold text-gray-900 mb-3">Résultats obtenus :</h4>
+                <ul class="space-y-2">
+                    <li
+                    v-for="result in abe.results"
+                    :key="result"
+                    class="flex items-start space-x-2 text-sm text-gray-600"
+                    >
+                    <CheckIcon class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span>{{ result }}</span>
+                    </li>
+                </ul>
+                </div>
+
+                <!-- Footer avec référence -->
+                <div class="pt-4 border-t border-blue-200">
+                <div class="flex items-center justify-between">
+                    <div class="text-xs text-gray-500">
+                    Réf: {{ abe.reference }}
+                    </div>
+                    <div class="flex items-center space-x-2">
+                    <DynamicIcon name="DocumentIcon" class="w-4 h-4 text-blue-500" />
+                    <span class="text-xs text-blue-600 font-medium">ABE Officielle</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Résumé des ABE -->
+            <div class="mt-16 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Bilan des Attestations</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-600 mb-1">6</div>
+                    <div class="text-sm text-gray-600">ABE Délivrées</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600 mb-1">413M+</div>
+                    <div class="text-sm text-gray-600">FCFA Validés</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-600 mb-1">100%</div>
+                    <div class="text-sm text-gray-600">Projets Réussis</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-orange-600 mb-1">4</div>
+                    <div class="text-sm text-gray-600">Clients Institutionnels</div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
       <!-- Localisation -->
       <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
@@ -533,44 +646,74 @@
     </div>
   </template>
 
-  <script setup>
-  import { ref, onMounted } from 'vue'
-  import { Head, Link } from '@inertiajs/vue3'
-  import {
-    ChevronDownIcon,
-    CheckIcon
-  } from '@heroicons/vue/24/outline'
+<script setup>
+import { ref, onMounted } from 'vue'
+import { Head, Link } from '@inertiajs/vue3'
+import {
+  ChevronDownIcon,
+  CheckIcon
+} from '@heroicons/vue/24/outline'
 
-  // Components
-  import Navigation from '@/Components/Layout/Navigation.vue'
-  import Footer from '@/Components/Layout/Footer.vue'
-  import CounterAnimation from '@/Components/UI/CounterAnimation.vue'
-  import DynamicIcon from '@/Components/UI/DynamicIcon.vue'
+// Components
+import Navigation from '@/Components/Layout/Navigation.vue'
+import Footer from '@/Components/Layout/Footer.vue'
+import CounterAnimation from '@/Components/UI/CounterAnimation.vue'
+import DynamicIcon from '@/Components/UI/DynamicIcon.vue'
 
-  // Props
-  const props = defineProps({
-    companyInfo: Object,
-    vision: Object,
-    leadership: Object,
-    departments: Array,
-    innovationProcess: Array,
-    stats: Array,
-    certifications: Array,
-    culture: Object,
-    location: Object,
-    meta: Object
-  })
+// Props
+const props = defineProps({
+  companyInfo: Object,
+  vision: Object,
+  leadership: Object,
+  departments: Array,
+  innovationProcess: Array,
+  stats: Array,
+  certifications: Array,
+  attestations: Array,
+  culture: Object,
+  location: Object,
+  meta: Object
+})
 
-  // État local
-  const isVisible = ref(false)
+// État local
+const isVisible = ref(false)
 
-  // Lifecycle
-  onMounted(() => {
-    setTimeout(() => {
-      isVisible.value = true
-    }, 100)
-  })
-  </script>
+// Méthodes
+const formatAmount = (amount) => {
+  if (!amount || amount === 'Montant confidentiel') {
+    return 'Confidentiel';
+  }
+
+  // Convertir en nombre et formater avec espaces
+  const numAmount = parseInt(amount.replace(/\s/g, ''));
+
+  if (numAmount >= 1000000) {
+    return (numAmount / 1000000).toFixed(1) + 'M';
+  } else if (numAmount >= 1000) {
+    return (numAmount / 1000).toFixed(0) + 'K';
+  }
+
+  return numAmount.toLocaleString('fr-FR');
+}
+
+const getStatusBadgeClass = (status) => {
+  const statusClasses = {
+    'Réalisé': 'bg-green-100 text-green-800',
+    'En cours': 'bg-blue-100 text-blue-800',
+    'En attente': 'bg-yellow-100 text-yellow-800',
+    'Validé': 'bg-green-100 text-green-800'
+  };
+
+  return statusClasses[status] || 'bg-gray-100 text-gray-800';
+}
+
+// Lifecycle
+onMounted(() => {
+  setTimeout(() => {
+    isVisible.value = true
+  }, 100)
+})
+</script>
 
   <style scoped>
   /* Styles identiques aux autres pages */

@@ -275,6 +275,136 @@ class AProposController extends Controller
                 'category' => 'IoT',
                 'icon' => 'GlobeEuropeAfricaIcon',
                 'priority' => 'medium'
+            ],
+
+        ];
+
+        // Attestations de Bonne Exécution (ABE) - 6 ABE identifiées
+        $attestations = [
+            [
+                'title' => 'ABE ANADER - Schéma Directeur SI',
+                'amount' => '120 094 500',
+                'currency' => 'FCFA',
+                'period' => 'Mars - Décembre 2023',
+                'date_emission' => '19 janvier 2024',
+                'client' => 'ANADER',
+                'client_full' => 'Agence Nationale d\'Appui au Développement Rural',
+                'description' => 'Élaboration du schéma directeur informatique de l\'ANADER',
+                'status' => 'Réalisé',
+                'reference' => 'N° 009 - MEMINADER/DG.ANADER/D2MG.2024/CMH/SA',
+                'director' => 'M. CISSE Moustapha Hassan',
+                'representative' => 'YVES MAO, Directeur Général',
+                'type' => 'Conseil IT',
+                'image' => '/images/abe/anader_schema_directeur_2024.pdf',
+                'priority' => 'high'
+            ],
+            [
+                'title' => 'ABE Orange CI - Projet Épervier',
+                'amount' => '250 000 000',
+                'currency' => 'FCFA',
+                'period' => 'Mars 2012 - Avril 2013',
+                'date_emission' => '29 juillet 2020',
+                'client' => 'Orange CI',
+                'client_full' => 'Orange Côte d\'Ivoire',
+                'description' => 'Conception et mise en œuvre du projet Épervier dans le cadre du programme de transformation du SI commercial (programme UNIQ)',
+                'status' => 'Réalisé',
+                'reference' => 'ABE Projet Épervier',
+                'director' => 'Patrick N\'DOUA, Directeur Adjoint Projets ITN',
+                'representative' => 'MAO YAPO YVES, Directeur Exécutif',
+                'type' => 'AMOA',
+                'image' => '/images/abe/orange_epervier_2020.pdf',
+                'priority' => 'high',
+                'results' => [
+                    'Accès unique aux applications pour les Chargés de Clientèle',
+                    'Vision 360° d\'un Client (tout univers confondu)',
+                    'Déployé dans toute la zone UEMOA',
+                    'Programme de transformation SI commercial réussi'
+                ]
+            ],
+            [
+                'title' => 'ABE CNAM - SIBIS AMOA',
+                'amount' => 'Montant confidentiel',
+                'currency' => '',
+                'period' => 'Septembre 2022 - Décembre 2023',
+                'date_emission' => '17 janvier 2024',
+                'client' => 'CNAM',
+                'client_full' => 'Caisse Nationale d\'Assurance Maladie',
+                'description' => 'Mission d\'Assistance à la Maîtrise d\'Ouvrage pour l\'accompagnement de la mise en œuvre opérationnelle et la montée en puissance du Système d\'Information Biométrique In Situ (SIBIS)',
+                'status' => 'Réalisé',
+                'reference' => 'Mission AMOA SIBIS',
+                'director' => 'Karim BAMBA, Directeur Général',
+                'representative' => 'M. Yves MAO, Directeur Général',
+                'type' => 'AMOA',
+                'image' => '/images/abe/cnam_sibis_amoa_2024.pdf',
+                'priority' => 'high',
+                'results' => [
+                    'Élaboration du cadre contractuel et fonctionnel',
+                    'Opérationnalisation du SIBIS',
+                    'Remise des cartes biométriques aux assurés CMU',
+                    'Déploiement total du SIBIS à l\'échelle nationale'
+                ]
+            ],
+            [
+                'title' => 'ABE ANADER - Car Policy',
+                'amount' => '29 500 000',
+                'currency' => 'FCFA',
+                'period' => 'Décembre 2020 - Juin 2021',
+                'date_emission' => '14 octobre 2022',
+                'client' => 'ANADER',
+                'client_full' => 'Agence Nationale d\'Appui au Développement Rural',
+                'description' => 'Élaboration et mise en œuvre de la nouvelle politique de gestion de la flotte de véhicules ANADER',
+                'status' => 'Réalisé',
+                'reference' => 'N° 128 / MEMINADER/DG.2022/D2MG/CMH/BN',
+                'director' => 'M. CISSE Moustapha Hassan',
+                'representative' => 'YVES MAO, Directeur Général',
+                'type' => 'Car Policy',
+                'image' => '/images/abe/anader_car_policy_2022.pdf',
+                'priority' => 'high',
+                'results' => [
+                    'Réduction de 20% des charges courantes',
+                    'Diminution de 30% des amendes',
+                    'Augmentation de 30% du taux de disponibilité'
+                ]
+            ],
+            [
+                'title' => 'ABE CNAM - Car Policy',
+                'amount' => '13 600 000',
+                'currency' => 'FCFA',
+                'period' => '2022',
+                'date_emission' => '17 octobre 2022',
+                'client' => 'CNAM',
+                'client_full' => 'Caisse Nationale d\'Assurance Maladie',
+                'description' => 'Élaboration et mise en œuvre de la politique de gestion de la flotte de véhicules de la CNAM',
+                'status' => 'Réalisé',
+                'reference' => 'Réf. ER-21-ACH',
+                'director' => 'Karim BAMBA, Directeur Général',
+                'representative' => 'Monsieur MAO YVES',
+                'type' => 'Car Policy',
+                'image' => '/images/abe/cnam_car_policy_2022.pdf',
+                'priority' => 'high'
+            ],
+            [
+                'title' => 'ABE CNAM - Auto-enrôlement CMU',
+                'amount' => 'Montant confidentiel',
+                'currency' => '',
+                'period' => 'Mars 2022 - Décembre 2023',
+                'date_emission' => '17 janvier 2024',
+                'client' => 'CNAM',
+                'client_full' => 'Caisse Nationale d\'Assurance Maladie',
+                'description' => 'Mission d\'Assistance à la Maîtrise d\'Ouvrage pour la mise en œuvre du système d\'auto-enrôlement biométrique à la Couverture Maladie Universelle (CMU)',
+                'status' => 'Réalisé',
+                'reference' => 'Mission AMOA CMU',
+                'director' => 'Karim BAMBA, Directeur Général',
+                'representative' => 'M. Yves MAO, Directeur Général',
+                'type' => 'AMOA',
+                'image' => '/images/abe/cnam_auto_enrolement_2024.pdf',
+                'priority' => 'high',
+                'results' => [
+                    'Déploiement système d\'identification électronique',
+                    'Solution technologique smartphone',
+                    'Cadrage projet complet',
+                    'Assistance contractuelle et opérationnelle'
+                ]
             ]
         ];
 
@@ -332,6 +462,7 @@ class AProposController extends Controller
             'innovationProcess' => $innovationProcess,
             'stats' => $stats,
             'certifications' => $certifications,
+            'attestations' => $attestations,
             'culture' => $culture,
             'location' => $location,
             'meta' => $meta
