@@ -492,15 +492,20 @@
               class="group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
             >
               <!-- Image du projet -->
-              <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden">
+              <div class="h-48 relative overflow-hidden">
+                <img
+                    :src="project.image"
+                    :alt="project.title"
+                    class="w-full h-full object-cover"
+                >
                 <div class="absolute inset-0 bg-black/20"></div>
                 <div class="absolute bottom-4 left-4 right-4">
-                  <span class="inline-block px-3 py-1 bg-white/90 text-gray-900 text-xs font-semibold rounded-full">
+                    <span class="inline-block px-3 py-1 bg-white/90 text-gray-900 text-xs font-semibold rounded-full">
                     {{ project.category }}
-                  </span>
-                  <span class="inline-block px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full ml-2">
+                    </span>
+                    <span class="inline-block px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full ml-2">
                     {{ project.status }}
-                  </span>
+                    </span>
                 </div>
               </div>
 
@@ -663,58 +668,71 @@
          </p>
        </div>
 
-       <div class="grid lg:grid-cols-3 gap-8 mb-12">
-         <div
-           v-for="highlight in teamHighlights"
-           :key="highlight.name || highlight.title"
-           class="text-center bg-white/10 rounded-xl p-6 backdrop-blur-sm"
-         >
-           <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-             <UsersIcon class="w-10 h-10 text-orange-400" />
-           </div>
-           <h3 class="text-xl font-bold mb-2">
-             {{ highlight.name || highlight.title }}
-           </h3>
-           <p class="text-orange-400 font-semibold mb-2">
-             {{ highlight.role || highlight.count }}
-           </p>
-           <p class="text-sm opacity-75">{{ highlight.expertise }}</p>
-         </div>
+       <div class="grid lg:grid-cols-4 gap-8 mb-12">
+        <div
+            v-for="highlight in teamHighlights"
+            :key="highlight.name || highlight.title"
+            class="text-center bg-white/10 rounded-xl p-6 backdrop-blur-sm"
+            >
+            <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                <!-- Image pour le Directeur Général -->
+                <img
+                v-if="highlight.role === 'Directeur Général'"
+                :src="'/images/team/directeur.jpeg' || '/images/team/directeur.jpeg'"
+                :alt="highlight.name"
+                class="w-full h-full object-cover rounded-full"
+                />
+                <!-- Icône par défaut pour les autres rôles -->
+                <UsersIcon
+                v-else
+                class="w-10 h-10 text-orange-400"
+                />
+            </div>
+            <h3 class="text-xl font-bold mb-2">
+                {{ highlight.name || highlight.title }}
+            </h3>
+            <p class="text-orange-400 font-semibold mb-2">
+                {{ highlight.role || highlight.count }}
+            </p>
+            <p class="text-sm opacity-75">{{ highlight.expertise }}</p>
+            </div>
        </div>
 
        <!-- Certifications enrichies -->
-       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-         <div
-           v-for="cert in certifications.filter(c => c.priority === 'high')"
-           :key="cert.title"
-           class="text-center bg-white/10 rounded-lg p-6 backdrop-blur-sm border border-white/20"
-         >
-           <TrophyIcon class="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-           <h4 class="font-bold text-lg mb-2">{{ cert.title }}</h4>
-           <p class="text-sm opacity-75 mb-1">{{ cert.description }}</p>
-           <span class="text-xs bg-white/20 px-2 py-1 rounded-full">{{ cert.year }}</span>
-         </div>
+       <div class="flex flex-wrap gap-6 mb-12">
+        <!-- Certifications priority = high -->
+        <div
+            v-for="cert in certifications.filter(c => c.priority === 'high')"
+            :key="cert.title"
+            class="w-full md:w-1/2 lg:w-1/3 text-center bg-white/10 rounded-lg p-6 backdrop-blur-sm border border-white/20"
+        >
+            <TrophyIcon class="w-12 h-12 text-yellow-400 mx-auto mb-3" />
+            <h4 class="font-bold text-lg mb-2">{{ cert.title }}</h4>
+            <p class="text-sm opacity-75 mb-1">{{ cert.description }}</p>
+            <span class="text-xs bg-white/20 px-2 py-1 rounded-full">{{ cert.year }}</span>
+        </div>
 
-         <!-- Autres certifications -->
-         <div class="text-center bg-white/10 rounded-lg p-6 backdrop-blur-sm border border-white/20 lg:col-span-3">
-           <h4 class="font-bold text-lg mb-4">Certifications & Memberships</h4>
-           <div class="flex flex-wrap justify-center gap-3">
-             <span
-               v-for="cert in certifications.filter(c => c.priority !== 'high')"
-               :key="cert.title"
-               class="bg-white/20 px-3 py-1 rounded-full text-sm"
-             >
-               {{ cert.title }}
-             </span>
-           </div>
+        <!-- Certifications & Memberships -->
+        <div class="w-full md:w-1/2 lg:w-1/3 text-center bg-white/10 rounded-lg p-6 backdrop-blur-sm border border-white/20">
+            <h4 class="font-bold text-lg mb-4">Certifications & Memberships</h4>
+            <div class="flex flex-wrap justify-center gap-3">
+            <span
+                v-for="cert in certifications.filter(c => c.priority !== 'high')"
+                :key="cert.title"
+                class="bg-white/20 px-3 py-1 rounded-full text-sm"
+            >
+                {{ cert.title }}
+            </span>
+            </div>
 
-           <!-- Infos entreprise -->
-           <div class="mt-4 text-sm opacity-75">
-             <p>{{ companyInfo.legal.employees }} collaborateurs • Capital {{ companyInfo.legal.capital }}</p>
-             <p>RCCM: {{ companyInfo.legal.rccm }}</p>
-           </div>
-         </div>
-       </div>
+            <!-- Infos entreprise -->
+            <div class="mt-4 text-sm opacity-75">
+            <p>{{ companyInfo.legal.employees }} collaborateurs • Capital {{ companyInfo.legal.capital }}</p>
+            <p>RCCM: {{ companyInfo.legal.rccm }}</p>
+            </div>
+        </div>
+        </div>
+
 
        <div class="text-center">
          <Link

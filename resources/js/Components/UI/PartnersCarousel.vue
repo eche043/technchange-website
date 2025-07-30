@@ -11,7 +11,7 @@
           <img
             :src="partner.logo"
             :alt="partner.name"
-            class="max-h-10 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            class="max-h-16 max-w-30 object-contain transition-all duration-300 group-hover:scale-110"
           >
         </div>
 
@@ -24,7 +24,7 @@
           <img
             :src="partner.logo"
             :alt="partner.name"
-            class="max-h-10 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            class="max-h-16 max-w-30 object-contain transition-all duration-300 group-hover:scale-110"
           >
         </div>
       </div>

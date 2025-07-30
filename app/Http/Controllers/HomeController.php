@@ -59,7 +59,7 @@ class HomeController extends Controller
                     'WURI Identification (2025)',
                     'PBF (2025)'
                 ],
-                'route' => 'services.amoa',
+                'route' => 'services/amoa',
                 'highlight' => true
             ],
             [
@@ -87,7 +87,7 @@ class HomeController extends Controller
                     '99.9% précision déduplication',
                     'Interconnexion multi-systèmes'
                 ],
-                'route' => 'services.identity'
+                'route' => 'services/identity'
             ],
             [
                 'id' => 'transport',
@@ -113,7 +113,7 @@ class HomeController extends Controller
                     'digitransb2b.com',
                     'digitrans.com'
                 ],
-                'route' => 'services.transport'
+                'route' => 'services/transport'
             ],
             [
                 'id' => 'solutions',
@@ -133,7 +133,7 @@ class HomeController extends Controller
                     'Plateformes gouvernementales',
                     'Solutions IoT industrielles'
                 ],
-                'route' => 'services.solutions'
+                'route' => 'services/solutions'
             ],
             [
                 'id' => 'patrimoine',
@@ -158,7 +158,7 @@ class HomeController extends Controller
                     'Projets UE financés',
                     'Standards ouverts'
                 ],
-                'route' => 'services.patrimoine'
+                'route' => 'services/patrimoine'
             ]
         ];
 
@@ -376,7 +376,7 @@ class HomeController extends Controller
         $partners = [
             [
                 'name' => 'Orange Côte d\'Ivoire',
-                'logo' => '/images/logos/partners/orange.png',
+                'logo' => '/images/logos/partners/orange.jpg',
                 'category' => 'Télécommunications',
                 'project' => 'Transformation digitale (+30% achats digitaux)'
             ],
@@ -394,7 +394,7 @@ class HomeController extends Controller
             ],
             [
                 'name' => 'BNETD',
-                'logo' => '/images/logos/partners/bnetd.png',
+                'logo' => '/images/logos/partners/bnetd.jpeg',
                 'category' => 'Infrastructure',
                 'project' => 'Car Policy & Gestion de flotte'
             ],
@@ -406,7 +406,7 @@ class HomeController extends Controller
             ],
             [
                 'name' => 'Ministère Emploi et Protection Sociale',
-                'logo' => '/images/logos/partners/meps.png',
+                'logo' => '/images/logos/partners/meps.jpg',
                 'category' => 'Gouvernement',
                 'project' => 'WURI - Identification Unique'
             ],
@@ -424,13 +424,13 @@ class HomeController extends Controller
             ],
             [
                 'name' => 'CGECI',
-                'logo' => '/images/logos/partners/cgeci.png',
+                'logo' => '/images/logos/partners/cgeci.jpg',
                 'category' => 'Patronat',
                 'project' => 'Confédération Générale des Entreprises'
             ],
             [
                 'name' => 'RTI',
-                'logo' => '/images/logos/partners/rti.png',
+                'logo' => '/images/logos/partners/rti.jpg',
                 'category' => 'Média',
                 'project' => 'Solutions de diffusion'
             ]

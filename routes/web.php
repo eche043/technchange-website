@@ -22,7 +22,13 @@ use Inertia\Inertia;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/services', [ServicesController::class, 'index'])->name('index');
+
+Route::prefix('services')->name('services.')->group(function () {
+    Route::get('/', [ServicesController::class, 'index'])->name('index');
+    Route::get('/amoa', [ServicesController::class, 'amoa'])->name('amoa');
+    Route::get('/identity', [ServicesController::class, 'identity'])->name('identity');
+    // Autres routes services à ajouter...
+});
 Route::get('/projets', [ProjetsController::class, 'index'])->name('projets.index');
 Route::get('/a-propos', [AProposController::class, 'index'])->name('apropos.index');
 
