@@ -25,7 +25,7 @@
           <div class="max-w-4xl mx-auto text-center text-white">
             <div class="inline-flex items-center bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
               <span class="animate-pulse w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
-              Depuis {{ companyInfo.legal.creation_year }} • {{ companyInfo.legal.employees }} collaborateurs
+              Depuis {{ companyInfo.legal.creation_year }} • +{{ companyInfo.legal.employees }} collaborateurs
             </div>
 
             <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -37,7 +37,7 @@
             </p>
 
             <!-- Statistiques rapides -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               <div
                 v-for="(stat, index) in stats"
                 :key="stat.label"
@@ -224,7 +224,7 @@
           <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-gray-900 mb-6">Nos Équipes</h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              {{ companyInfo.legal.employees }} collaborateurs répartis en équipes spécialisées pour vous accompagner
+              +{{ companyInfo.legal.employees }} collaborateurs répartis en équipes spécialisées pour vous accompagner
             </p>
           </div>
 
@@ -246,7 +246,8 @@
                   <div>
                     <h3 class="text-xl font-bold text-gray-900">{{ department.name }}</h3>
                     <p class="text-blue-600 font-semibold">
-                      {{ department.count ? `${department.count} ${department.role}` : department.leads?.length + ' Chefs de projet' }}
+                        {{ department.role }}
+                      <!-- {{ department.count ? `${department.count} ${department.role}` : department.leads?.length + ' Chefs de projet' }} -->
                     </p>
                   </div>
                 </div>

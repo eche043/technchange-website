@@ -17,12 +17,12 @@ class HomeController extends Controller
                 'suffix' => '+',
                 'description' => 'Depuis 2017'
             ],
-            [
+            /* [
                 'label' => 'Projets réalisés',
                 'value' => 250,
                 'suffix' => '+',
                 'description' => 'Tous secteurs'
-            ],
+            ], */
             [
                 'label' => 'Clients satisfaits',
                 'value' => 50,
@@ -31,8 +31,8 @@ class HomeController extends Controller
             ],
             [
                 'label' => 'Experts mobilisés',
-                'value' => 28,
-                'suffix' => '',
+                'value' => 20,
+                'suffix' => '+',
                 'description' => 'Équipe pluridisciplinaire'
             ]
         ];
@@ -448,7 +448,8 @@ class HomeController extends Controller
             ],
             [
                 'title' => 'Équipe AMOA',
-                'count' => '4 Consultants Senior',
+                'count' => 'Consultants Senior',
+                /* 'count' => '4 Consultants Senior', */
                 'expertise' => 'Transformation digitale & Gouvernance SI',
                 'image' => '/images/team/amoa-team.jpg',
                 'certifications' => ['TOGAF', 'ITIL', 'Agile'],
@@ -456,7 +457,8 @@ class HomeController extends Controller
             ],
             [
                 'title' => 'Équipe Technique',
-                'count' => '12 Développeurs',
+                /* 'count' => '12 Développeurs', */
+                'count' => 'Développeurs',
                 'expertise' => 'Web, Mobile, Blockchain, IA, Big Data',
                 'image' => '/images/team/dev-team.jpg',
                 'technologies' => ['Vue.js', 'Laravel', 'Node.js', 'Python', 'Blockchain'],
@@ -464,7 +466,8 @@ class HomeController extends Controller
             ],
             [
                 'title' => 'Équipe Support',
-                'count' => '8 Spécialistes',
+                'count' => 'Spécialistes',
+                /* 'count' => '8 Spécialistes', */
                 'expertise' => 'Formation, Documentation, Support 24/7',
                 'image' => '/images/team/support-team.jpg',
                 'languages' => ['Français', 'Anglais', 'Langues locales'],

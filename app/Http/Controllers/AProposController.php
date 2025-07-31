@@ -18,7 +18,7 @@ class AProposController extends Controller
                 'capital' => '10 000 000 FCFA',
                 'rccm' => 'CI-ABJ-2017-B-1535',
                 'creation_year' => '2017',
-                'employees' => 28,
+                'employees' => 20,
                 'address' => 'Cocody, Riviera Attoban, derrière le 30ème arrondissement',
                 'postal' => '08 BP 3823 ABIDJAN 08',
                 'phone' => ['+225 21 21 32 42 47', '+225 07 89 97 11 13'],
@@ -94,7 +94,8 @@ class AProposController extends Controller
         $departments = [
             [
                 'name' => 'Conseil/AMOA',
-                'count' => 4,
+                'count' => '',
+                /* 'count' => 4, */
                 'role' => 'Consultants Senior',
                 'expertise' => 'Transformation digitale & Gouvernance SI',
                 'image' => '/images/team/amoa-team.jpg',
@@ -105,7 +106,8 @@ class AProposController extends Controller
             ],
             [
                 'name' => 'Développement Web/Apps',
-                'count' => 6,
+                'count' => '',
+                /* 'count' => 6, */
                 'role' => 'Développeurs Full-Stack',
                 'expertise' => 'Web, Mobile, Blockchain, IA, Big Data',
                 'image' => '/images/team/dev-team.jpg',
@@ -116,7 +118,8 @@ class AProposController extends Controller
             ],
             [
                 'name' => 'Support et Maintenance IoT',
-                'count' => 4,
+                /* 'count' => 4, */
+                'count' => '',
                 'role' => 'Spécialistes IoT/FIWARE',
                 'expertise' => 'IoT, FIWARE, Monitoring temps réel',
                 'image' => '/images/team/iot-team.jpg',
@@ -125,7 +128,7 @@ class AProposController extends Controller
                 'description' => 'Experts en solutions IoT conformes aux standards européens',
                 'icon' => 'BuildingOfficeIcon'
             ],
-            [
+            /* [
                 'name' => 'Solutions digiTRANS',
                 'leads' => [
                     [
@@ -144,10 +147,11 @@ class AProposController extends Controller
                 'description' => 'Équipe dédiée aux solutions transport primées internationalement',
                 'achievements' => ['Lauréat France/Afrique 2020', '25K+ utilisateurs'],
                 'icon' => 'TruckIcon'
-            ],
+            ], */
             [
                 'name' => 'Administration & Support',
-                'count' => 12,
+                'count' => '',
+                /* 'count' => 4, */
                 'roles' => [
                     'Gestion des Moyens Généraux et Logistique (4)',
                     'Administration, Comptabilité et Finances (3)',
@@ -216,16 +220,16 @@ class AProposController extends Controller
             ],
             [
                 'label' => 'Collaborateurs',
-                'value' => 28,
-                'suffix' => '',
+                'value' => 20,
+                'suffix' => '+',
                 'description' => 'Équipe pluridisciplinaire'
             ],
-            [
+            /* [
                 'label' => 'Projets réalisés',
                 'value' => 250,
                 'suffix' => '+',
                 'description' => 'Tous secteurs confondus'
-            ],
+            ], */
             [
                 'label' => 'Clients satisfaits',
                 'value' => 50,
@@ -449,7 +453,7 @@ class AProposController extends Controller
         // Méta données SEO
         $meta = [
             'title' => 'À Propos - TECH N\'CHANGE | Cabinet de conseil ivoirien depuis 2017',
-            'description' => 'Découvrez TECH N\'CHANGE : 28 collaborateurs, 8 ans d\'expertise, 250+ projets réalisés. Mission, vision, équipe et culture d\'entreprise du leader ivoirien de la transformation digitale.',
+            'description' => 'Découvrez TECH N\'CHANGE : +20 collaborateurs, 8 ans d\'expertise. Mission, vision, équipe et culture d\'entreprise du leader ivoirien de la transformation digitale.',
             'keywords' => 'à propos, TECH N\'CHANGE, équipe, Yves MAO, cabinet conseil, Côte d\'Ivoire, transformation digitale, histoire entreprise, culture, valeurs',
             'canonical' => url('/a-propos')
         ];

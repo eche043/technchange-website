@@ -38,7 +38,7 @@ class ServicesController extends Controller
                     '99% taux de satisfaction client',
                     '8 ans d\'expertise AMOA'
                 ],
-                'route' => 'services.amoa',
+                'route' => 'services/amoa',
                 'highlight' => true
             ],
             [
@@ -72,7 +72,7 @@ class ServicesController extends Controller
                     'ISO 27001',
                     'Certification biométrique'
                 ],
-                'route' => 'services.identity'
+                'route' => 'services/identity'
             ],
             [
                 'id' => 'transport',
@@ -99,7 +99,7 @@ class ServicesController extends Controller
                     'digitransb2b.com',
                     'digitrans.com'
                 ],
-                'route' => 'services.transport'
+                'route' => '/#digitrans'
             ],
             [
                 'id' => 'solutions',
@@ -126,7 +126,7 @@ class ServicesController extends Controller
                     'AWS/Azure',
                     'Docker/Kubernetes'
                 ],
-                'route' => 'services.solutions'
+                'route' => 'projets'
             ],
             [
                 'id' => 'patrimoine',
@@ -152,7 +152,7 @@ class ServicesController extends Controller
                     'Projets UE financés',
                     'Standards ouverts'
                 ],
-                'route' => 'services.patrimoine'
+                'route' => '/#firware'
             ]
         ];
 
@@ -286,12 +286,12 @@ class ServicesController extends Controller
     {
         // Statistiques AMOA
         $stats = [
-            [
+            /* [
                 'label' => 'Projets AMOA pilotés',
                 'value' => 250,
                 'suffix' => '+',
                 'description' => 'Depuis 2017'
-            ],
+            ], */
             [
                 'label' => 'Taux de satisfaction',
                 'value' => 99,
@@ -304,12 +304,12 @@ class ServicesController extends Controller
                 'suffix' => '%',
                 'description' => 'Notre cœur de métier'
             ],
-            [
+            /* [
                 'label' => 'Consultants Senior',
                 'value' => 4,
                 'suffix' => '',
                 'description' => 'Équipe dédiée AMOA'
-            ]
+            ] */
         ];
 
         // Projets AMOA phares

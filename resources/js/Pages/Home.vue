@@ -144,14 +144,14 @@
             </div>
 
             <!-- Stats AMOA -->
-            <div class="grid grid-cols-2 gap-6">
-              <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+            <div class="grid grid-cols-3 gap-6">
+              <!-- <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <div class="text-3xl font-bold text-orange-400 mb-2">150+</div>
                 <div class="text-sm">Projets AMOA pilotés</div>
-              </div>
+              </div> -->
               <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                <div class="text-3xl font-bold text-orange-400 mb-2">4</div>
-                <div class="text-sm">Consultants AMOA Senior</div>
+                <div class="text-3xl font-bold text-orange-400 mb-2">20+</div>
+                <div class="text-sm">Experts mobilisés</div>
               </div>
               <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <div class="text-3xl font-bold text-orange-400 mb-2">8</div>
@@ -549,12 +549,12 @@
                   </span>
                 </div>
 
-                <Link
+                <!-- <Link
                   :href="`/projets/${project.id}`"
                   class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition-colors duration-300"
                 >
                   Voir le projet
-                </Link>
+                </Link> -->
               </div>
             </div>
           </div>

@@ -37,7 +37,7 @@
             </p>
 
             <!-- Statistiques rapides -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               <div
                 v-for="(stat, index) in stats"
                 :key="stat.label"
@@ -170,12 +170,12 @@
                 </div>
 
                 <!-- CTA -->
-                <Link
+                <!-- <Link
                   :href="`/projets/${project.id}`"
                   class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition-colors duration-300"
                 >
                   Voir le projet
-                </Link>
+                </Link> -->
               </div>
             </div>
           </div>
@@ -256,12 +256,12 @@
               </div>
 
               <!-- CTA -->
-              <Link
+              <!-- <Link
                 :href="`/projets/${project.id}`"
                 class="block w-full text-center bg-gray-800 hover:bg-gray-900 text-white py-2 rounded-lg font-semibold transition-colors duration-300"
               >
                 En savoir plus
-              </Link>
+              </Link> -->
             </div>
           </div>
 

@@ -33,11 +33,11 @@
           </h1>
 
           <p class="text-xl mb-8 opacity-90 leading-relaxed">
-            Rejoignez une équipe de 28 experts passionnés qui transforment la société africaine avec des projets d'envergure nationale touchant plus de 20 millions de vies.
+            Rejoignez une équipe de +20 experts passionnés qui transforment la société africaine avec des projets d'envergure nationale touchant plus de 20 millions de vies.
           </p>
 
           <!-- Statistiques RH -->
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <!-- <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <div
               v-for="(stat, index) in stats"
               :key="stat.label"
@@ -54,7 +54,7 @@
               </div>
               <div class="text-sm opacity-75">{{ stat.label }}</div>
             </div>
-          </div>
+          </div> -->
 
           <!-- CTA Buttons -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center">

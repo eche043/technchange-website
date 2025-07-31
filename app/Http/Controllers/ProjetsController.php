@@ -268,12 +268,12 @@ class ProjetsController extends Controller
 
         // Statistiques globales
         $stats = [
-            [
+           /*  [
                 'label' => 'Projets réalisés',
                 'value' => 250,
                 'suffix' => '+',
                 'description' => 'Depuis 2017'
-            ],
+            ], */
             [
                 'label' => 'Millions d\'utilisateurs impactés',
                 'value' => 20,

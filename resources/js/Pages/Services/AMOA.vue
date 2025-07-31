@@ -41,7 +41,7 @@
             </p>
 
             <!-- Statistiques rapides -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-2 lg:grid-cols-2 gap-6 mb-8">
               <div
                 v-for="(stat, index) in stats"
                 :key="stat.label"

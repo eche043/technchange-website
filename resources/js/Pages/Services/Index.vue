@@ -40,13 +40,14 @@
           </p>
 
           <!-- Statistiques rapides (style Home.vue avec couleur orange) -->
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 mb-8 justify-center mx-auto">
+
             <div
               v-for="(stat, index) in [
-                { label: 'Projets réalisés', value: 250, suffix: '+' },
+                /* { label: 'Projets réalisés', value: 250, suffix: '+' }, */
                 { label: 'Années d\'expertise', value: 8, suffix: '+' },
                 { label: 'Clients satisfaits', value: 50, suffix: '+' },
-                { label: 'Experts mobilisés', value: 28, suffix: '' }
+                { label: 'Experts mobilisés', value: 20, suffix: '+' }
               ]"
               :key="stat.label"
               class="text-center"
