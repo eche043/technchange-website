@@ -219,7 +219,7 @@
       </section>
 
       <!-- Départements & Équipes -->
-      <section class="py-20 bg-white">
+      <section id="equipe" class="py-20 bg-white">
         <div class="container mx-auto px-6">
           <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-gray-900 mb-6">Nos Équipes</h2>
@@ -299,13 +299,13 @@
               </div>
 
               <!-- Stats spéciales -->
-              <div v-if="department.projects || department.achievements" class="mt-4">
+              <!-- <div v-if="department.projects || department.achievements" class="mt-4">
                 <div class="bg-orange-50 rounded-lg p-3 text-center">
                   <div class="font-semibold text-orange-800">
                     {{ department.projects || department.achievements?.join(' • ') }}
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

@@ -234,8 +234,8 @@ class CarrieresController extends Controller
         $stats = [
             [
                 'label' => 'Collaborateurs',
-                'value' => 28,
-                'suffix' => '',
+                'value' => 20,
+                'suffix' => '+',
                 'description' => 'Équipe en croissance'
             ],
             [

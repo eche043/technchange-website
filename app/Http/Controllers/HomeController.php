@@ -540,7 +540,7 @@ class HomeController extends Controller
             ],
             'secondaryAction' => [
                 'text' => 'En savoir plus',
-                'url' => '/a-propos/equipe',
+                'url' => '/a-propos#equipe',
                 'type' => 'secondary'
             ],
             'expiration' => '2025-08-31',
