@@ -177,9 +177,14 @@
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <!-- Profil Directeur -->
             <div class="text-center lg:text-left">
-              <div class="w-32 h-32 bg-white/20 rounded-full mx-auto lg:mx-0 mb-6 flex items-center justify-center backdrop-blur-sm">
-                <span class="text-4xl font-bold text-orange-400">{{ leadership.director.name.split(' ').map(n => n[0]).join('') }}</span>
-              </div>
+                <div class="w-32 h-32 bg-white/20 rounded-full mx-auto lg:mx-0 mb-6 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+                    <img
+                    :src="'/images/team/directeur.jpeg' || '/images/team/directeur.jpeg'"
+                    :alt="leadership.director.name"
+                    class="w-full h-full object-cover rounded-full"
+                    @error="handleImageError"
+                    />
+                </div>
 
               <h2 class="text-3xl font-bold mb-2">{{ leadership.director.name }}</h2>
               <p class="text-xl text-orange-400 font-semibold mb-4">{{ leadership.director.role }}</p>
@@ -598,15 +603,44 @@
             </div>
 
             <!-- Carte ou illustration -->
+            <!-- Google Maps -->
             <div class="relative">
-              <div class="w-full h-96 bg-gradient-to-br from-green-500 to-blue-600 rounded-2xl flex items-center justify-center text-white">
-                <div class="text-center">
-                  <DynamicIcon name="BuildingOfficeIcon" class="w-24 h-24 mx-auto mb-4" />
-                  <p class="text-xl font-semibold">TECH N'CHANGE</p>
-                  <p class="text-sm opacity-90 mt-2">Cocody, Riviera Attoban</p>
-                  <p class="text-sm opacity-90">Abidjan, Côte d'Ivoire</p>
+                <div class="w-full h-96 rounded-2xl overflow-hidden shadow-lg">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.8947123456789!2d-3.9856294067463947!3d5.370228022616372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMjInMTIuOCJOIDPCsDU5JzA4LjMiVw!5e0!3m2!1sfr!2sci!4v1640995200000!5m2!1sfr!2sci"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="rounded-2xl"
+                ></iframe>
                 </div>
-              </div>
+
+                <!-- Overlay avec informations -->
+                <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                    <div>
+                    <p class="font-semibold text-gray-900 text-sm">TECH N'CHANGE</p>
+                    <p class="text-xs text-gray-600">Cocody, Riviera Attoban</p>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Bouton pour ouvrir dans Google Maps -->
+                <div class="absolute top-4 right-4">
+
+                   <a href="https://maps.google.com/?q=Cocody,+Riviera+Attoban,+Abidjan,+Côte+d'Ivoire"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-white/90 hover:bg-white backdrop-blur-sm rounded-lg p-2 shadow-lg transition-all duration-300 group"
+                    title="Ouvrir dans Google Maps"
+                >
+                    <DynamicIcon name="ArrowTopRightOnSquareIcon" class="w-5 h-5 text-gray-600 group-hover:text-blue-600" />
+                </a>
+                </div>
             </div>
           </div>
         </div>

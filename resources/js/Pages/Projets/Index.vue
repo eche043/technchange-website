@@ -98,21 +98,20 @@
               class="group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
             >
               <!-- Image du projet -->
-              <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden">
+              <div class="h-48 relative overflow-hidden">
+                <img
+                    :src="project.image"
+                    :alt="project.title"
+                    class="w-full h-full object-cover"
+                >
                 <div class="absolute inset-0 bg-black/20"></div>
                 <div class="absolute bottom-4 left-4 right-4">
-                  <div class="flex items-center justify-between">
                     <span class="inline-block px-3 py-1 bg-white/90 text-gray-900 text-xs font-semibold rounded-full">
-                      {{ project.category }}
+                    {{ project.category }}
                     </span>
-                    <span :class="[
-                      'inline-block px-3 py-1 text-white text-xs font-semibold rounded-full',
-                      project.status === 'Réalisé' ? 'bg-green-500' :
-                      project.status === 'En cours' ? 'bg-blue-500' : 'bg-orange-500'
-                    ]">
-                      {{ project.status }}
+                    <span class="inline-block px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full ml-2">
+                    {{ project.status }}
                     </span>
-                  </div>
                 </div>
               </div>
 

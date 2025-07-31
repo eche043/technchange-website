@@ -339,7 +339,7 @@
     </section>
 
     <!-- Témoignages Employés -->
-    <section class="py-20 bg-blue-600 text-white">
+    <!-- <section class="py-20 bg-blue-600 text-white">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-4xl font-bold mb-6">Ce que disent nos Collaborateurs</h2>
@@ -348,13 +348,14 @@
           </p>
         </div>
 
+
         <div class="grid lg:grid-cols-3 gap-8">
           <div
             v-for="testimonial in testimonials"
             :key="testimonial.name"
             class="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20"
           >
-            <!-- Stars -->
+
             <div class="flex items-center mb-4">
               <div class="flex">
                 <svg
@@ -372,12 +373,12 @@
               </div>
             </div>
 
-            <!-- Content -->
+
             <blockquote class="text-white/90 mb-6 leading-relaxed">
               "{{ testimonial.content }}"
             </blockquote>
 
-            <!-- Author -->
+
             <div class="flex items-center">
               <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                 <span class="text-white font-semibold">{{ testimonial.name.charAt(0) }}</span>
@@ -391,7 +392,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Culture d'Entreprise -->
     <section id="culture" class="py-20 bg-gray-50">

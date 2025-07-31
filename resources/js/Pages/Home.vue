@@ -275,7 +275,7 @@
       </section>
 
       <!-- Section digiTRANS - Solutions Transport (NOUVELLE) -->
-      <section class="py-20 bg-gradient-to-r from-orange-500 to-red-600 text-white">
+      <section id="digitrans" class="py-20 bg-gradient-to-r from-orange-500 to-red-600 text-white">
         <div class="container mx-auto px-6">
           <!-- Header avec awards -->
           <div class="text-center mb-16">
@@ -571,12 +571,12 @@
       </section>
 
       <!-- Section FIWARE & Gestion du Patrimoine -->
-      <section class="py-20 bg-gray-900 text-white">
+      <section id="firware" class="py-20 bg-gray-900 text-white">
         <div class="container mx-auto px-6">
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div class="flex items-center mb-6">
-                <img src="/images/logos/fiware-logo.png" alt="FIWARE" class="h-12 mr-4">
+                <img src="/images/logos/partners/fiware.png" alt="FIWARE" class="h-12 mr-4">
                 <span class="px-3 py-1 bg-orange-500 text-white text-sm font-bold rounded-full">
                   MEMBRE
                 </span>
@@ -700,7 +700,6 @@
 
 
        <!-- Certifications enrichies -->
-       <!-- Certifications enrichies -->
        <div class="flex flex-wrap gap-6 mb-12">
         <!-- Certifications priority = high -->
         <div
@@ -715,7 +714,7 @@
         </div>
 
         <!-- Certifications & Memberships -->
-        <div class="w-full md:w-1/2 lg:w-1/3 text-center bg-white/10 rounded-lg p-6 backdrop-blur-sm border border-white/20">
+        <!-- <div class="w-full md:w-1/2 lg:w-1/3 text-center bg-white/10 rounded-lg p-6 backdrop-blur-sm border border-white/20">
             <h4 class="font-bold text-lg mb-4">Certifications & Memberships</h4>
             <div class="flex flex-wrap justify-center gap-3">
             <span
@@ -727,12 +726,12 @@
             </span>
             </div>
 
-            <!-- Infos entreprise -->
+
             <div class="mt-4 text-sm opacity-75">
             <p>{{ companyInfo.legal.employees }} collaborateurs • Capital {{ companyInfo.legal.capital }}</p>
             <p>RCCM: {{ companyInfo.legal.rccm }}</p>
             </div>
-        </div>
+        </div> -->
         </div>
 
 

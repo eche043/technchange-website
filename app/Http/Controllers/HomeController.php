@@ -113,7 +113,7 @@ class HomeController extends Controller
                     'digitransb2b.com',
                     'digitrans.com'
                 ],
-                'route' => 'services/transport'
+                'route' => '#digitrans'
             ],
             [
                 'id' => 'solutions',
@@ -133,7 +133,7 @@ class HomeController extends Controller
                     'Plateformes gouvernementales',
                     'Solutions IoT industrielles'
                 ],
-                'route' => 'services/solutions'
+                'route' => 'projets'
             ],
             [
                 'id' => 'patrimoine',
@@ -158,7 +158,7 @@ class HomeController extends Controller
                     'Projets UE financés',
                     'Standards ouverts'
                 ],
-                'route' => 'services/patrimoine'
+                'route' => '#firware'
             ]
         ];
 

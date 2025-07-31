@@ -6,7 +6,7 @@
           <!-- Logo et description -->
           <div class="lg:col-span-2">
             <div class="flex items-center space-x-3 mb-4">
-              <img src="/images/logos/technchange-logo-white.svg" alt="TECH N'CHANGE" class="h-10">
+              <img src="/images/logos/tc_blanc.png" alt="TECH N'CHANGE" class="h-10">
               <div class="font-bold text-xl">TECH N'CHANGE</div>
             </div>
             <p class="text-gray-300 mb-4 max-w-md">
@@ -25,8 +25,8 @@
             <ul class="space-y-2 text-gray-300">
               <li><Link href="/services/amoa" class="hover:text-white transition-colors">AMOA & Conseil</Link></li>
               <li><Link href="/services/identite-numerique" class="hover:text-white transition-colors">Identité Numérique</Link></li>
-              <li><Link href="/services/solutions" class="hover:text-white transition-colors">Solutions Tech</Link></li>
-              <li><Link href="/services/patrimoine" class="hover:text-white transition-colors">Patrimoine FIWARE</Link></li>
+              <li><Link href="/projets" class="hover:text-white transition-colors">Solutions Tech</Link></li>
+              <li><Link href="/#firware" class="hover:text-white transition-colors">Patrimoine FIWARE</Link></li>
             </ul>
           </div>
 
